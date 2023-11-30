@@ -12,3 +12,6 @@ Even nadenken hoe dat in een enigzins representabele UI te stoppen.
 
 Ik gok zo iets meer dan de helft van de tijd backend, en dus iets minder dan de tijd frontend.
 Beginnen maar met een kleine planning (in planning.md).
+
+Planning gemaakt, toch wel veel taken voor de CRUD. Was op mijn laatste projecten ook zo. Mss toch eens naar een CRUD framework kijken.
+2 uurtjes voor story 1, en 1 uur per stuk voor story 2 en 3. Pfoe. Dat wordt aanpoten.
