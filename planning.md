@@ -1,7 +1,7 @@
 story 1 
 [x] starten van een GIT repo (1)
 [x] dit document erin
-[ ] backend project 
+[x] backend project 
 [ ] EF model incl. validaties (dash 2 en 3)
 [ ] dbcontext
 [ ] Migrations

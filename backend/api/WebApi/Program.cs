@@ -22,8 +22,6 @@ namespace WebApi
                 app.UseSwaggerUI();
             }
 
-            app.UseAuthorization();
-
 
             app.MapControllers();
 
