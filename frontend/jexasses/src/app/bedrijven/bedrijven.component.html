@@ -1,0 +1,7 @@
+<p>bedrijven works!</p>
+
+<div *ngFor="let bedrijf of bedrijven$ | async">
+  <p>{{ bedrijf.name }}</p>
+  <p>{{ bedrijf.address }}</p>
+</div>
+
