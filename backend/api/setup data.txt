@@ -1,3 +1,12 @@
+use jexassessment
+GO
+
+delete from vacancies
+delete from companies
+
+DBCC CHECKIDENT ('companies', RESEED, 0)
+DBCC CHECKIDENT ('vacancies', RESEED, 0)
+
   insert into  companies (name, address) values
   ('JEX', 'Nassaukade 5, 3071 JL Rotterdam'),
   ('TopChoice work', 'Dorpstraat 12, 3040 TT Maarn'),
@@ -7,4 +16,9 @@
   (select id, 'programmeur', 'De leukste programmeursplek voor elke geek!' from companies where [name] = 'JEX') union all
   (select id, 'hr medewerker', 'HR bij ons: werken met en voor de leukste geeks' from companies where [name] = 'JEX') union all
   (select id, 'socials redacteur', 'Maak ons bedrijf awesome op de socials.' from companies where [name] = 'JEX') union all
-  (select id, 'programmeur', 'Programmeur C#' from companies where [name] = 'TopChoice work') 
+  (select id, 'programmeur', 'Programmeur C#' from companies where [name] = 'TopChoice work')  union all
+  (select id, 'CEO', null from companies where [name] = 'TopChoice work') 
+
+
+  select * from vacancies
+  select * from companies

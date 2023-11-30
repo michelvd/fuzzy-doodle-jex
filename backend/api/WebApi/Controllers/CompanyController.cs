@@ -2,6 +2,7 @@ using Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.Design;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace WebApi.Controllers
 {
@@ -17,15 +18,15 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<CompanyDto> Get()
+        public List<CompanyDto> Get()
         {
-            return _companiesRepository.GetAll();
+            return _companiesRepository.GetAll().Select(x => new CompanyDto(x.Id, x.Name, x.Address)).ToList();
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            CompanyDto company = _companiesRepository.GetById(id);
+            Company? company = _companiesRepository.GetById(id);
             if (company == null)
             {
                 return NotFound();
@@ -36,19 +37,19 @@ namespace WebApi.Controllers
         [HttpPatch("{id}")]
         public IActionResult Patch([FromBody] CompanyPatchDto companyPatchDto, int id)
         {
-            CompanyDto companyDto = _companiesRepository.GetById(id);
-            if (companyDto == null)
+            Company? company = _companiesRepository.GetById(id);
+            if (company == null)
             {
                 return NotFound();
             }
             // should check if companyPatchDto is valid
-            Company company = new()
+            Company patchedCompany = new()
             {
                 Address = companyPatchDto.Address,
                 Name = companyPatchDto.Name,
                 Id = id
             };
-            _companiesRepository.Update(company);
+            _companiesRepository.Update(patchedCompany);
 
             return NoContent();
         }
@@ -74,8 +75,8 @@ namespace WebApi.Controllers
         {
 
 
-            CompanyDto companyDto = _companiesRepository.GetById(id);
-            if (companyDto == null)
+            var company = _companiesRepository.GetById(id);
+            if (company == null)
             {
                 return NotFound();
             }
@@ -96,17 +97,45 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{companyId}/vacancies")]
-        public IEnumerable<VacanyDto> Get(int companyId)
+        public List<VacanyDto> Get(int companyId)
         {
-            return _vacanciesRepository.GetAll(companyId);
+            return _vacanciesRepository.GetAll(companyId).Select(x => new VacanyDto { Id = x.Id, Title = x.Title, Description = x.Description }).ToList();
         }
 
-       
+        [HttpGet("{companyId}/vacancies/{id}")]
+        public IActionResult GetById(int id, int companyId)
+        {
+            Vacancy? vacancy = _vacanciesRepository.GetById(id);
+            if (vacancy == null)
+            {
+                return NotFound();
+            }
+            return Ok(new VacancyDto { CompanyId = vacancy.Id, Description  =   vacancy.Description, Id = vacancy.Id, Title = vacancy.Title});
+        }
+
+        [HttpPost("{companyId}/vacancies")]
+        public IActionResult Post([FromBody] VacancyPostDto vacancyPostDto, int companyId)
+        {
+
+            // should check if vacancyPostDto is valid
+            Vacancy vacancy = new()
+            {
+                Title = vacancyPostDto.Title,
+                Description = vacancyPostDto.Description,
+                CompanyId = companyId
+            };
+            _vacanciesRepository.Insert(vacancy);
+
+            // moet eigenlijk een 201 created zijn met een locatie er bij
+            return Ok();
+        }
     }
 
     public interface IVacanciesRepository
     {
-        IEnumerable<VacanyDto> GetAll(int companyId);
+        IEnumerable<Vacancy> GetAll(int companyId);
+        Vacancy? GetById(int id);
+        void Insert(Vacancy vacancy);
     }
     public class VacanciesRepository : IVacanciesRepository
     {
@@ -117,21 +146,42 @@ namespace WebApi.Controllers
             _context = context;
         }
 
-        public IEnumerable<VacanyDto> GetAll(int companyId)
+        public IEnumerable<Vacancy> GetAll(int companyId)
         {
-            return _context.Vacancies.AsNoTracking().Where(x => x.CompanyId == companyId).Select(x => new VacanyDto
+            return _context.Vacancies.AsNoTracking().Where(x => x.CompanyId == companyId).ToList();
+        }
+
+        public Vacancy? GetById(int id)
+        {
+            Vacancy? vacancy = _context.Vacancies.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            return vacancy;
+
+        }
+
+        public void Insert(Vacancy vacancy)
+        {
+            var toInsert = new Vacancy
             {
-                Id = x.Id,
-                Title = x.Title,
-                Description = x.Description
-            }).ToList();
+                Title = vacancy.Title,
+                Description = vacancy.Description,
+                CompanyId = vacancy.CompanyId
+            };
+            _context.Vacancies.Add(toInsert);
+            _context.Entry(toInsert).State = EntityState.Added;
+            _context.SaveChanges();
         }
     }
     public class VacanyDto
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public string? Description { get; set; } = null!;
+    }  
+    
+    public class VacancyPostDto
+    {
+        public string Title { get; set; } = null!;
+        public string? Description { get; set; }
     }
     public class CompanyDto
     {
@@ -176,7 +226,7 @@ namespace WebApi.Controllers
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public string? Description { get; set; } = null!;
         public int CompanyId { get; set; }
     }
 
@@ -184,8 +234,8 @@ namespace WebApi.Controllers
     public interface ICompaniesRepository
     {
         void DeleteById(int id);
-        List<CompanyDto> GetAll();
-        CompanyDto GetById(int id);
+        List<Company> GetAll();
+        Company? GetById(int id);
         void Insert(Company company);
         void Update(Company company);
     }
@@ -209,15 +259,15 @@ namespace WebApi.Controllers
             _context.SaveChanges();
         }
 
-        public List<CompanyDto> GetAll()
+        public List<Company> GetAll()
         {
-            return _context.Companies.AsNoTracking().Select(x => new CompanyDto(x.Id, x.Name, x.Address)).ToList();
+            return _context.Companies.AsNoTracking().ToList();
         }
 
-        public CompanyDto GetById(int id)
+        public Company? GetById(int id)
         {
             Company? company = _context.Companies.AsNoTracking().FirstOrDefault(x => x.Id == id);
-            return company == null ? null! : new CompanyDto(company.Id, company.Name, company.Address);
+            return company;
         }
 
 

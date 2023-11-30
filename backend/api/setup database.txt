@@ -22,7 +22,7 @@ GO
 CREATE TABLE [vacancies] (
     [Id] int NOT NULL IDENTITY,
     [Title] nvarchar(max) NOT NULL,
-    [Description] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NULL,
     [CompanyId] int NOT NULL,
     CONSTRAINT [PK_vacancies] PRIMARY KEY ([Id]),
     CONSTRAINT [FK_vacancies_companies_CompanyId] FOREIGN KEY ([CompanyId]) REFERENCES [companies] ([Id]) ON DELETE CASCADE
