@@ -22,21 +22,25 @@ Planning gemaakt, toch wel veel taken voor de CRUD. Was op mijn laatste projecte
 backend projecten in .NET 6. Laatste lts tot voor kort, nog geen project van mezelf gepoort naar .NET 8, zitten voor deze opdracht geen onmisbare issues in, dus maar op safe met .net 6
 note to PO: migratie story voor .net 8
 
-# EF
+## EF
 Dan merk je dat je dat niet elke dag opzet, dat je meestal in een bestaande context komt. Relatief veel uitzoekwerk
 
-# controller methods
-## algemeen
+## controller methods
+### algemeen
 al die read/get methods heb ik laatst in een project ook geimplementeerd (opgezet door de architect) in een separaat alleen-lezen project met GraphQl.
 dus vanaf de frontend kon je dan queries doen op de backend via de graphql met het hotChocolate framework. Dat was een soort CQRS. 
 werkte wel goed, maar het nadeel was dat alles over 2 projecten verdeeld was.
 
-## patch
+### patch
 ik heb geen json patch geimplementeerd, maar ik heb wel een patch method gemaakt die een company kan updaten
 
-## error handling en validatie
+### error handling en validatie
 tijd tikt.... er moet natuurlijk errorhandling in, die een ProblemDetails class teruggeeft.
 En validatie bij CRUD. Zelf iets maken of FluentValidation implementeren.
 
-## en bij de vacancy crud....
+### en bij de vacancy crud....
 moet er natuurlijk gecontroleerd worden of de company wel bestaat (en als er gebruikers zijn, of deze wel door de gebruiker mag worden gemuteerd)
+
+### niet alle crud voor vacancy gemaakt (geen delete en patch) 
+onder het mom van yagni? Nee, omdat de tijd voor de backend echt op was en deze methods nog niet nodig waren
+

@@ -1,5 +1,5 @@
 using Database;
-using WebApi.Controllers;
+using WebApi.Repositories;
 
 namespace WebApi
 {
