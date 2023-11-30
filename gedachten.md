@@ -1,3 +1,4 @@
+# Vooraf
 Twee nieuwe projecten.
 Veel keuzes altijd bij een nieuw project, zeker als je helemaal vrij bent.
 
@@ -13,5 +14,14 @@ Even nadenken hoe dat in een enigzins representabele UI te stoppen.
 Ik gok zo iets meer dan de helft van de tijd backend, en dus iets minder dan de tijd frontend.
 Beginnen maar met een kleine planning (in planning.md).
 
+# planning
 Planning gemaakt, toch wel veel taken voor de CRUD. Was op mijn laatste projecten ook zo. Mss toch eens naar een CRUD framework kijken.
 2 uurtjes voor story 1, en 1 uur per stuk voor story 2 en 3. Pfoe. Dat wordt aanpoten.
+
+# backend projecten
+backend projecten in .NET 6. Laatste lts tot voor kort, nog geen project van mezelf gepoort naar .NET 8, zitten voor deze opdracht geen onmisbare issues in, dus maar op safe met .net 6
+note to PO: migratie story voor .net 8
+
+# EF
+Dan merk je dat je dat niet elke dag opzet, dat je meestal in een bestaande context komt. Relatief veel uitzoekwerk
+

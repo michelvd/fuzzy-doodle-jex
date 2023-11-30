@@ -1,3 +1,5 @@
+using Database;
+
 namespace WebApi
 {
     public class Program
@@ -12,6 +14,7 @@ namespace WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            DatabaseConfig.Setup(builder.Services);
 
             var app = builder.Build();
 
@@ -24,6 +27,7 @@ namespace WebApi
 
 
             app.MapControllers();
+
 
             app.Run();
         }

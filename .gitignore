@@ -5,3 +5,5 @@
 /backend/api/.vs/api
 /backend/api/WebApi/obj
 /backend/api/WebApi/bin/Debug/net6.0
+/backend/api/Database/bin/Debug/net6.0
+/backend/api/Database/obj
