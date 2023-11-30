@@ -23,9 +23,9 @@ story 2
 [x] Angular project
 [x] Material toevoegen (3)
 [x] Bedrijf ophalen vanuit Frontend (eerste end-to-end)
-[ ] endpoint voor bedrijven + vacatures (met restrictie uit story, alleen bedrijven met vacatures)
-[ ] endpoint aanroepen en bedrijven en vacatures tonen
-[ ] overdracht informatie aanvullen
+[x] endpoint voor bedrijven + vacatures (met restrictie uit story, alleen bedrijven met vacatures)
+[x] endpoint aanroepen en bedrijven en vacatures tonen
+[x] overdracht informatie aanvullen
 
 story 3
 [ ] form toevoegen

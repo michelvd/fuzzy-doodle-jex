@@ -1,7 +1,10 @@
-<p>bedrijven works!</p>
 
 <div *ngFor="let bedrijf of bedrijven$ | async">
-  <p>{{ bedrijf.name }}</p>
-  <p>{{ bedrijf.address }}</p>
+  <div><h1>{{ bedrijf.name }}</h1>{{ bedrijf.address }}</div>
+  <ul *ngFor="let vacancy of bedrijf.vacancies">
+    <li><strong>{{ vacancy.title }}</strong> ({{ vacancy.description }})</li>
+  </ul>
+  <p></p>
+  <hr>
 </div>
 

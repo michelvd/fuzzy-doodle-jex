@@ -13,7 +13,7 @@ export class DataService {
     private apiUrlRoot = 'http://localhost:5062/companies';
 
     public getBedrijven(): Observable<Array<Bedrijf>> {
-      const apiUrl = `${this.apiUrlRoot}/`;
+      const apiUrl = `${this.apiUrlRoot}?onlyWithVacancies=true`;
       return this.http.get<Array<Bedrijf>>(`${apiUrl}`);
   }
 
