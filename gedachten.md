@@ -41,6 +41,10 @@ En validatie bij CRUD. Zelf iets maken of FluentValidation implementeren.
 ### en bij de vacancy crud....
 moet er natuurlijk gecontroleerd worden of de company wel bestaat (en als er gebruikers zijn, of deze wel door de gebruiker mag worden gemuteerd)
 
+## dto class?
+zit er soms nog in 'van vroeger', hadden net zo goed records kunnen zijn
+
 ### niet alle crud voor vacancy gemaakt (geen delete en patch) 
 onder het mom van yagni? Nee, omdat de tijd voor de backend echt op was en deze methods nog niet nodig waren
 
+# Frontend

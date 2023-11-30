@@ -13,11 +13,11 @@ story 1
 [x] Postman post bedrijf
 [x] Postman update bedrijf
 [x] Postman delete bedrijf (2)
-[ ] endpoint voor get, post, patch, delete vacature
-[ ] Postman post vacature
-[ ] Postman update vacature
-[ ] Postman delete vacature
-[ ] overdracht informatie aanvullen
+[x] endpoint voor get, post, patch, delete vacature
+[x] Postman post vacature
+[x] Postman update vacature
+[x] Postman delete vacature
+[x] overdracht informatie aanvullen
 
 story 2
 [ ] Angular project
