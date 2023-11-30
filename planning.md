@@ -6,8 +6,8 @@ story 1
 [x] dbcontext
 [x] Migrations
 [x] TestData (script)
-[ ] Endpoint voor bedrijf data
-[ ] Postman project
+[x] Endpoint voor bedrijf data
+[x] Postman project
 [ ] Postman get bedrijf
 [ ] endpoint voor post, patch, delete bedrijf
 [ ] Postman post bedrijf
