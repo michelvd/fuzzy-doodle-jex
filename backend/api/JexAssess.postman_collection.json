@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "f0956e10-a3b4-40d3-b245-ba0bcff9ac88",
+		"name": "JexAssess",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8958336"
+	},
+	"item": [
+		{
+			"name": "Get alle bedrijven",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}companies",
+					"host": [
+						"{{base_url}}companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get alle vacancies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}companies/1/vacancies",
+					"host": [
+						"{{base_url}}companies"
+					],
+					"path": [
+						"1",
+						"vacancies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get vacancy by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}companies/1/vacancies/5",
+					"host": [
+						"{{base_url}}companies"
+					],
+					"path": [
+						"1",
+						"vacancies",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post vacancy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Gave baan\",\r\n    \"description\": \"aàáâãäåāăącçćĉċ\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}companies/1/vacancies",
+					"host": [
+						"{{base_url}}companies"
+					],
+					"path": [
+						"1",
+						"vacancies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get bedrijf by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}companies/1",
+					"host": [
+						"{{base_url}}companies"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch bedrijf",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"JEX 3000\",\r\n    \"address\": \"Blaak 3000, 1010 BL Rotterdam\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}companies/4",
+					"host": [
+						"{{base_url}}companies"
+					],
+					"path": [
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert bedrijf",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"New! people\",\r\n    \"address\": \"Blaak 1, 1010 PP Rotterdam\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}companies",
+					"host": [
+						"{{base_url}}companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete bedrijf",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"New! people\",\r\n    \"address\": \"Blaak 1, 1010 PP Rotterdam\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}companies/4",
+					"host": [
+						"{{base_url}}companies"
+					],
+					"path": [
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5062/",
+			"type": "string"
+		}
+	]
+}

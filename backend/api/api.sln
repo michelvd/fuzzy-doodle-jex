@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Databa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{D1DDADA5-411B-4389-88E3-E1039FA9AB51}"
 	ProjectSection(SolutionItems) = preProject
+		JexAssess.postman_collection.json = JexAssess.postman_collection.json
 		setup data.txt = setup data.txt
 		setup database.txt = setup database.txt
 	EndProjectSection
