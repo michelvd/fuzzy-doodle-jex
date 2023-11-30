@@ -8,11 +8,11 @@ story 1
 [x] TestData (script)
 [x] Endpoint voor bedrijf data
 [x] Postman project
-[ ] Postman get bedrijf
-[ ] endpoint voor post, patch, delete bedrijf
-[ ] Postman post bedrijf
-[ ] Postman update bedrijf
-[ ] Postman delete bedrijf (2)
+[x] Postman get bedrijf
+[x] endpoint voor post, patch, delete bedrijf
+[x] Postman post bedrijf
+[x] Postman update bedrijf
+[x] Postman delete bedrijf (2)
 [ ] endpoint voor get, post, patch, delete vacature
 [ ] Postman post vacature
 [ ] Postman update vacature
