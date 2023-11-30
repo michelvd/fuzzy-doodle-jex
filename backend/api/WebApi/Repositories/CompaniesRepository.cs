@@ -23,9 +23,15 @@ namespace WebApi.Repositories
             _context.SaveChanges();
         }
 
-        public List<Company> GetAll()
+        public List<Company> GetAll(bool onlyWithVacancies)
         {
-            return _context.Companies.AsNoTracking().ToList();
+            var companies = _context.Companies.AsQueryable(); 
+            if (onlyWithVacancies)
+            {
+                companies = companies.Where(c => c.Vacancies.Any());
+            }
+            companies = companies.Include(c => c.Vacancies);
+            return companies.ToList();
         }
 
         public Company? GetById(int id)

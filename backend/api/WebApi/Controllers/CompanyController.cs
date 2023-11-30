@@ -19,9 +19,10 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public List<CompanyDto> Get()
+        public List<CompanyDto> Get([FromQuery] bool onlyWithVacancies)
         {
-            return _companiesRepository.GetAll().Select(x => new CompanyDto(x.Id, x.Name, x.Address)).ToList();
+            return _companiesRepository.GetAll(onlyWithVacancies)
+                .Select(x => new CompanyDto(x.Id, x.Name, x.Address, x.Vacancies.Select(v => new VacancyDto(v.Id, v.Title, v.Description, v.CompanyId)).ToList())).ToList();
         }
 
         [HttpGet("{id}")]

@@ -2,11 +2,12 @@
 {
     public class CompanyDto
     {
-        public CompanyDto(int id, string name, string address)
+        public CompanyDto(int id, string name, string address, List<VacancyDto> vacancies)
         {
             Id = id;
             Name = name;
             Address = address;
+            Vacancies = vacancies;
         }
 
         public int Id { get; set; }

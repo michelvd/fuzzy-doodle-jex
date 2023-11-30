@@ -30,7 +30,7 @@ namespace WebApi.Controllers
             {
                 return NotFound();
             }
-            return Ok(new VacancyDto { CompanyId = vacancy.Id, Description  =   vacancy.Description, Id = vacancy.Id, Title = vacancy.Title});
+            return Ok(new VacancyDto(vacancy.Id,vacancy.Title, vacancy.Description, vacancy.CompanyId));
         }
 
         [HttpPost("{companyId}/vacancies")]
