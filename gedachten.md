@@ -48,3 +48,22 @@ zit er soms nog in 'van vroeger', hadden net zo goed records kunnen zijn
 onder het mom van yagni? Nee, omdat de tijd voor de backend echt op was en deze methods nog niet nodig waren
 
 # Frontend
+Project opzetten, vastgehouden aan de defaults.
+Dus geen JEX policies enforced met linting
+
+Wel material toegevoegd, ik dacht hoe moeilijk kan het zijn, maar kost toch voor elk UI ding meer tijd dan ik verwacht had.
+
+Geen checks ingebouwd bij het toevoegen van vacancy bij een bedrijf. Bij de API zelfde issue: bij een app in 4 uur is robuustheid niet altijd aanwezig.
+Mss had ik met de PO moeten overleggen bij story 1: ik kan story 1-3 doen zonder robuustheid of alleen 1 met robuustheid. Mss had de PO wel voor alleen story 1 gekozen....
+
+Het was ff rammen de laatste loodjes om het nog enigzins binnen de tijd te houden
+Invoer-scherm voor vacatures is echt een hello world geworden.
+
+# Einde
+Ik denk dat ik er iets minder dan 5 uur aan besteed heb.
+Het was leuk om te doen, maar wel pittig. Weinig tijd om fouten te maken / ergens goed over na te denken (behalve als ik met de PO had overlegd om maar 1 story te doen, maar dat klonk lame om te doen)
+Ik heb bewezen dat je er niet frisser van wordt als je 4 a 5 uur achter elkaar aan het rammen bent :-)
+Nog even de boel in github zetten en dan ff relaxen.
+
+
+
