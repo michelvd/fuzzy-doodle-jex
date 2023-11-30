@@ -5,7 +5,7 @@ story 1
 [x] EF model incl. validaties (dash 2 en 3)
 [x] dbcontext
 [x] Migrations
-[ ] TestData (script)
+[x] TestData (script)
 [ ] Endpoint voor bedrijf data
 [ ] Postman project
 [ ] Postman get bedrijf

@@ -1,0 +1,10 @@
+  insert into  companies (name, address) values
+  ('JEX', 'Nassaukade 5, 3071 JL Rotterdam'),
+  ('TopChoice work', 'Dorpstraat 12, 3040 TT Maarn'),
+  ('OnDemand', 'Graafweg 199, 1988 PL Groningen')
+
+  insert into vacancies(companyid, title, description) 
+  (select id, 'programmeur', 'De leukste programmeursplek voor elke geek!' from companies where [name] = 'JEX') union all
+  (select id, 'hr medewerker', 'HR bij ons: werken met en voor de leukste geeks' from companies where [name] = 'JEX') union all
+  (select id, 'socials redacteur', 'Maak ons bedrijf awesome op de socials.' from companies where [name] = 'JEX') union all
+  (select id, 'programmeur', 'Programmeur C#' from companies where [name] = 'TopChoice work') 
