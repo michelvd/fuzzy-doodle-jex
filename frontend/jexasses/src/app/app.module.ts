@@ -10,11 +10,16 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { BedrijvenComponent } from './bedrijven/bedrijven.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
+import { AddVacatureComponent } from './add-vacature/add-vacature.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BedrijvenComponent
+    BedrijvenComponent,
+    AddVacatureComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatSlideToggleModule,
     MatListModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

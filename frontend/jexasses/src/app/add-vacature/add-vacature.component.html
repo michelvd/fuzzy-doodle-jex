@@ -1,0 +1,28 @@
+<form [formGroup]="vacancyForm" (ngSubmit)="onSubmit()">
+  <div>
+  <label class="form-label" for="title">Title: </label>
+
+  <input
+    class="form-control"
+    id="title"
+    type="text"
+    formControlName="title"
+  />
+  <div class="red" *ngIf="vacancyForm.controls.title.errors">Verplicht veld</div>
+  </div>
+  <div>
+  <label class="form-label" for="description">Description: </label>
+  <input
+    class="form-control"
+    id="description"
+    type="text"
+    formControlName="description"
+  />
+
+
+  </div>
+
+  <button class="btn btn-primary">
+    Add
+  </button>
+</form>
