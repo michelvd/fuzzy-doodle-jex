@@ -28,12 +28,12 @@ story 2
 [x] overdracht informatie aanvullen
 
 story 3
-[ ] form toevoegen
-[ ] velden toevoegen
+[x] form toevoegen
+[x] velden toevoegen
 [ ] validatie
-[ ] post to server
+[x] post to server
 [ ] server resultaat afvangen + tonen
-[ ] overdracht informatie aanvullen
+[x] overdracht informatie aanvullen
 
 Ergens nog boodschappen doen en eten ;-)
 
