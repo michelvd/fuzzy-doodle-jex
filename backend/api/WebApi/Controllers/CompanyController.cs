@@ -84,6 +84,55 @@ namespace WebApi.Controllers
             return NoContent();
         }
     }
+    [ApiController]
+    [Route("companies")]
+    public class VacancyController : ControllerBase
+    {
+        private readonly IVacanciesRepository _vacanciesRepository;
+
+        public VacancyController(IVacanciesRepository vacanciesRepository)
+        {
+            _vacanciesRepository = vacanciesRepository;
+        }
+
+        [HttpGet("{companyId}/vacancies")]
+        public IEnumerable<VacanyDto> Get(int companyId)
+        {
+            return _vacanciesRepository.GetAll(companyId);
+        }
+
+       
+    }
+
+    public interface IVacanciesRepository
+    {
+        IEnumerable<VacanyDto> GetAll(int companyId);
+    }
+    public class VacanciesRepository : IVacanciesRepository
+    {
+        private readonly CoreContext _context;
+
+        public VacanciesRepository(CoreContext context)
+        {
+            _context = context;
+        }
+
+        public IEnumerable<VacanyDto> GetAll(int companyId)
+        {
+            return _context.Vacancies.AsNoTracking().Where(x => x.CompanyId == companyId).Select(x => new VacanyDto
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Description = x.Description
+            }).ToList();
+        }
+    }
+    public class VacanyDto
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = null!;
+        public string Description { get; set; } = null!;
+    }
     public class CompanyDto
     {
         public CompanyDto(int id, string name, string address)

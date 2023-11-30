@@ -11,6 +11,7 @@ namespace WebApi
 
             // Add services to the container.
             builder.Services.AddScoped<ICompaniesRepository, CompaniesRepository>();
+            builder.Services.AddScoped<IVacanciesRepository, VacanciesRepository>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

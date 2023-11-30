@@ -38,3 +38,5 @@ ik heb geen json patch geimplementeerd, maar ik heb wel een patch method gemaakt
 tijd tikt.... er moet natuurlijk errorhandling in, die een ProblemDetails class teruggeeft.
 En validatie bij CRUD. Zelf iets maken of FluentValidation implementeren.
 
+## en bij de vacancy crud....
+moet er natuurlijk gecontroleerd worden of de company wel bestaat (en als er gebruikers zijn, of deze wel door de gebruiker mag worden gemuteerd)
